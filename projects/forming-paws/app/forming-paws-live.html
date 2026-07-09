@@ -1,0 +1,515 @@
+<title>Forming Paws — Healthy Matches. Happy Litters.</title>
+<style>
+:root{
+  --brand:#33685a;          /* deep pine — health is the brand */
+  --brand-dark:#24503f;
+  --brand-soft:#e4efe9;
+  --amber:#c98a1b;          /* pending / attention */
+  --amber-soft:#f8efdc;
+  --ink:#26221c;
+  --ink-soft:#6d6459;
+  --bg:#faf8f3;
+  --card:#ffffff;
+  --line:#e7e1d5;
+  --photo-txt:#fff;
+  --radius:16px;
+  --shadow:0 2px 12px rgba(60,50,35,.08);
+  --shadow-lg:0 12px 40px rgba(60,50,35,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --brand:#6fae97;
+    --brand-dark:#8cc4ae;
+    --brand-soft:#20362e;
+    --amber:#e0a53f;
+    --amber-soft:#3a2f1a;
+    --ink:#ece7de;
+    --ink-soft:#a89e91;
+    --bg:#171512;
+    --card:#211e1a;
+    --line:#37322a;
+    --shadow:0 2px 12px rgba(0,0,0,.35);
+    --shadow-lg:0 12px 40px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --brand:#6fae97;--brand-dark:#8cc4ae;--brand-soft:#20362e;
+  --amber:#e0a53f;--amber-soft:#3a2f1a;
+  --ink:#ece7de;--ink-soft:#a89e91;--bg:#171512;--card:#211e1a;--line:#37322a;
+  --shadow:0 2px 12px rgba(0,0,0,.35);--shadow-lg:0 12px 40px rgba(0,0,0,.5);
+}
+:root[data-theme="light"]{
+  --brand:#33685a;--brand-dark:#24503f;--brand-soft:#e4efe9;
+  --amber:#c98a1b;--amber-soft:#f8efdc;
+  --ink:#26221c;--ink-soft:#6d6459;--bg:#faf8f3;--card:#ffffff;--line:#e7e1d5;
+  --shadow:0 2px 12px rgba(60,50,35,.08);--shadow-lg:0 12px 40px rgba(60,50,35,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);line-height:1.6}
+h1,h2,h3{line-height:1.15;font-weight:700;text-wrap:balance}
+.ui,button,select,input,.btn,.nav,.badge,.chip,.dist,.demo-pill,.tl-tag,.filters,.dog-meta,.results-count,.chat-panel,.toast,.hero-badge,.footer-note{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+em{font-style:normal;color:var(--brand)}
+img{max-width:100%}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-logo{font-size:1.2rem;font-weight:800;display:flex;gap:8px;align-items:center;cursor:pointer}
+.nav-links{display:flex;gap:20px;align-items:center;font-weight:600;font-size:.92rem}
+.nav-links a:not(.btn){cursor:pointer}
+.nav-links a:not(.btn):hover{color:var(--brand)}
+
+/* BUTTONS */
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:700;border:none;cursor:pointer;font-size:.98rem;transition:transform .15s,box-shadow .15s;color:var(--ink)}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.btn-primary{background:var(--brand);color:var(--bg)}
+.btn-primary:hover{background:var(--brand-dark)}
+.btn-ghost{background:transparent;border:2px solid var(--line)}
+.btn-light{background:var(--bg);color:var(--brand)}
+.btn-sm{padding:9px 18px;font-size:.88rem}
+
+/* HERO */
+.hero{padding:78px 5vw 58px;background:radial-gradient(1100px 560px at 82% -10%,var(--brand-soft),transparent)}
+.hero-inner{max-width:860px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-block;background:var(--brand-soft);color:var(--brand);font-weight:700;font-size:.82rem;padding:7px 16px;border-radius:999px;margin-bottom:22px;letter-spacing:.03em}
+.hero h1{font-size:clamp(2.4rem,6vw,3.9rem)}
+.accent{color:var(--brand);font-style:italic}
+.hero-sub{max-width:620px;margin:22px auto 30px;color:var(--ink-soft);font-size:1.12rem}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-stats{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;margin-top:50px}
+.hero-stats div{max-width:210px;text-align:left}
+.hero-stats strong{display:block;color:var(--brand);font-size:1rem;font-family:system-ui,sans-serif}
+.hero-stats span{font-size:.86rem;color:var(--ink-soft);font-family:system-ui,sans-serif}
+
+/* SECTIONS */
+.section{padding:70px 5vw;max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+.section-head p{color:var(--ink-soft);margin-top:8px}
+.grid{display:grid;gap:22px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(225px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.card h3{margin-bottom:8px;font-size:1.08rem}
+.card p{color:var(--ink-soft);font-size:.95rem}
+.card-icon{font-size:1.9rem;margin-bottom:12px}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--bg);font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-family:system-ui,sans-serif}
+
+/* TIMELINE */
+.timeline{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(225px,1fr))}
+.tl-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.tl-now{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft),var(--shadow)}
+.tl-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.tl-item h3{font-size:1.02rem;margin-bottom:6px}
+.tl-item p{color:var(--ink-soft);font-size:.9rem}
+
+/* CTA BAND */
+.cta-band{text-align:center;background:linear-gradient(120deg,var(--brand),var(--brand-dark));border-radius:var(--radius);color:var(--bg);max-width:1100px;padding:56px 5vw}
+.cta-band p{opacity:.92;margin:8px 0 24px}
+
+/* FOOTER */
+.footer{padding:36px 5vw;text-align:center;color:var(--ink-soft);border-top:1px solid var(--line);font-size:.92rem}
+.footer-note{margin-top:8px;font-size:.78rem;opacity:.75}
+
+/* VIEWS */
+.view{display:none}
+.view.active{display:block}
+
+/* APP */
+.app-shell{max-width:1200px;margin:0 auto;padding:26px 4vw 90px}
+.app-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:14px;margin-bottom:20px}
+.app-head h1{font-size:1.65rem}
+.app-head p{color:var(--ink-soft);font-size:.92rem;font-family:system-ui,sans-serif}
+.demo-pill{background:var(--amber-soft);color:var(--amber);font-weight:700;font-size:.76rem;padding:6px 14px;border-radius:999px}
+
+.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);margin-bottom:24px}
+.filters label{font-size:.74rem;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.filters select{padding:9px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:.9rem;min-width:130px}
+.filters input[type=range]{width:100%;accent-color:var(--brand)}
+.filters .f-group{flex:1;min-width:140px}
+.f-check{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.88rem;padding-top:16px}
+.f-check input{accent-color:var(--brand)}
+#distVal{font-weight:700;color:var(--brand)}
+.results-count{font-size:.88rem;color:var(--ink-soft);margin-bottom:14px;font-variant-numeric:tabular-nums}
+
+.dog-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.dog-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.dog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.dog-photo{height:185px;display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--photo-txt);position:relative}
+.dog-photo .badge{position:absolute;top:12px;left:12px;font-size:.7rem;font-weight:800;padding:5px 11px;border-radius:999px;background:#2c5e50;color:#fff}
+.badge.pending{background:#a87413}
+.dog-photo .dist{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.45);color:#fff;font-size:.74rem;font-weight:700;padding:4px 11px;border-radius:999px;font-variant-numeric:tabular-nums}
+.dog-body{padding:16px 18px 18px}
+.dog-name{font-weight:800;font-size:1.1rem;display:flex;justify-content:space-between;align-items:center}
+.dog-sex{font-size:1rem;font-family:system-ui,sans-serif}
+.dog-meta{color:var(--ink-soft);font-size:.86rem;margin:3px 0 12px}
+.dog-actions{display:flex;gap:8px}
+.dog-actions .btn{flex:1;padding:10px 0;font-size:.88rem;border-radius:12px}
+.btn-outline{background:var(--card);border:1.5px solid var(--line)}
+.btn-matched{background:#2c5e50;color:#fff}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(25,20,12,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border-radius:20px;max-width:520px;width:100%;max-height:88vh;overflow:auto;box-shadow:var(--shadow-lg);position:relative}
+.modal .dog-photo{height:215px;border-radius:20px 20px 0 0}
+.modal-body{padding:24px 26px 28px}
+.modal-body h2{display:flex;justify-content:space-between;align-items:center;font-size:1.4rem}
+.modal-body .dog-meta{margin:4px 0 14px}
+.modal-body>p{font-size:.97rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+.chip{background:var(--brand-soft);color:var(--brand);font-size:.78rem;font-weight:700;padding:6px 13px;border-radius:999px}
+.health-list{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:.88rem;font-family:system-ui,sans-serif}
+.health-list div{display:flex;justify-content:space-between;padding:5px 0;gap:12px}
+.health-list .ok{color:var(--brand);font-weight:700}
+.health-list .pend{color:var(--amber);font-weight:700}
+.modal-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.4);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:1.05rem;cursor:pointer;z-index:2}
+.gate-note{font-size:.8rem;color:var(--ink-soft);margin-top:12px;font-family:system-ui,sans-serif}
+
+/* TOAST + CHAT */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(150%);background:#2c5e50;color:#fff;font-weight:700;padding:15px 28px;border-radius:999px;box-shadow:var(--shadow-lg);transition:transform .3s;z-index:200}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.chat-panel{position:fixed;right:22px;bottom:22px;width:330px;max-width:92vw;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);display:none;flex-direction:column;overflow:hidden;z-index:150}
+.chat-panel.open{display:flex}
+.chat-head{background:var(--brand);color:var(--bg);padding:13px 17px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.chat-head button{background:none;border:none;color:var(--bg);font-size:1.05rem;cursor:pointer}
+.chat-msgs{padding:15px;display:flex;flex-direction:column;gap:9px;height:235px;overflow:auto;background:var(--bg)}
+.msg{max-width:82%;padding:9px 14px;border-radius:14px;font-size:.87rem}
+.msg.them{background:var(--card);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:var(--brand);color:var(--bg);align-self:flex-end;border-bottom-right-radius:4px}
+.chat-input{display:flex;border-top:1px solid var(--line)}
+.chat-input input{flex:1;border:none;padding:13px 15px;font-size:.9rem;outline:none;background:var(--card);color:var(--ink)}
+.chat-input button{background:var(--brand);color:var(--bg);border:none;padding:0 18px;font-weight:700;cursor:pointer}
+.chat-note{font-size:.7rem;color:var(--ink-soft);text-align:center;padding:7px 12px;background:var(--brand-soft)}
+
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-soft)}
+.empty span{font-size:3rem;display:block;margin-bottom:10px}
+
+@media(max-width:640px){
+  .nav-links a:not(.btn){display:none}
+  .hero{padding:50px 6vw 38px}
+}
+</style>
+
+<nav class="nav">
+  <span class="nav-logo" onclick="showView('home')">🐾 <span>Forming<em>Paws</em></span></span>
+  <div class="nav-links">
+    <a onclick="showView('home');location.hash='how'">How It Works</a>
+    <a onclick="showView('home');location.hash='roadmap'">Roadmap</a>
+    <a class="btn btn-primary btn-sm" onclick="showView('app')">Open the App</a>
+  </div>
+</nav>
+
+<!-- ============ LANDING VIEW ============ -->
+<div class="view active" id="view-home">
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Nonprofit · Community-driven · Health-verified</div>
+    <h1>Healthy matches.<br><span class="accent">Happy litters.</span></h1>
+    <p class="hero-sub">Forming Paws connects dog owners nearby for safe, health-documented breeding matches — thoughtful matchmaking for dogs, with veterinary verification at the center of everything.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="showView('app')">Browse Dogs Near You</button>
+      <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>Health-gated</strong><span>matching unlocks only after vet docs are verified</span></div>
+      <div><strong>Local-first</strong><span>find partners by distance, never exact addresses</span></div>
+      <div><strong>Owner-safe</strong><span>in-app chat, neutral meetup guidance, report tools</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="how" class="section">
+  <div class="section-head">
+    <h2>How Forming Paws works</h2>
+    <p>Four steps from profile to a safe, well-documented match.</p>
+  </div>
+  <div class="grid grid-4">
+    <div class="card"><div class="step-num">1</div><h3>Create a profile</h3><p>Add your dog's breed, age, temperament, and photos. Owners verify their identity; dogs get their own profile page.</p></div>
+    <div class="card"><div class="step-num">2</div><h3>Upload health records</h3><p>Vet wellness exams, vaccinations, and breed-specific screenings go into a private health vault. Our team reviews and verifies them.</p></div>
+    <div class="card"><div class="step-num">3</div><h3>Match nearby</h3><p>Filter by breed, sex, age, and distance. Express interest — when it's mutual, chat unlocks so owners can talk first.</p></div>
+    <div class="card"><div class="step-num">4</div><h3>Meet safely</h3><p>We suggest neutral meeting locations and a record-exchange checklist, so both owners meet prepared and confident.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Health first — it's the whole point</h2>
+    <p>Forming Paws exists to raise the standard of dog breeding, not just to make introductions.</p>
+  </div>
+  <div class="grid grid-3">
+    <div class="card"><div class="card-icon">🩺</div><h3>Verified health vault</h3><p>Matching stays locked until baseline vet documentation is reviewed. A verified badge means real, checked records — not an honor system.</p></div>
+    <div class="card"><div class="card-icon">❤️‍🩹</div><h3>A path to healthy</h3><p>Dogs whose records don't pass aren't rejected — they're referred to partner veterinarians with a plan to bring their health up to standard.</p></div>
+    <div class="card"><div class="card-icon">🚫</div><h3>Built against puppy mills</h3><p>Litter caps per profile, mandatory documentation, and community reporting keep high-volume breeders off the platform.</p></div>
+  </div>
+</section>
+
+<section id="roadmap" class="section">
+  <div class="section-head">
+    <h2>Where we're headed</h2>
+    <p>A nonprofit that grows with its community.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-item tl-now"><span class="tl-tag">Now</span><h3>Matching platform</h3><p>Profiles, health verification, local matching, and owner chat — the foundation you're looking at today.</p></div>
+    <div class="tl-item"><span class="tl-tag">Next</span><h3>Vet partner network</h3><p>Referral pathways so under-documented dogs get affordable care and re-enter matching healthy.</p></div>
+    <div class="tl-item"><span class="tl-tag">Later</span><h3>Education hub</h3><p>Expert-reviewed guides on responsible breeding, whelping, and puppy health for every owner.</p></div>
+    <div class="tl-item"><span class="tl-tag">Vision</span><h3>Safe breeding facility</h3><p>A physical safe space for supervised mating, breeding, and whelping — run by the nonprofit.</p></div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <h2>Ready to meet your dog's match?</h2>
+  <p>Browse verified dogs in the demo — no signup needed.</p>
+  <button class="btn btn-light" onclick="showView('app')">Open the App</button>
+</section>
+
+<footer class="footer">
+  <div>🐾 <strong>Forming Paws</strong> — a nonprofit initiative for healthy, responsible dog breeding.</div>
+  <div class="footer-note">Demo build · Forming Paws is not a party to any breeding arrangement. Always consult your veterinarian.</div>
+</footer>
+</div>
+
+<!-- ============ APP VIEW ============ -->
+<div class="view" id="view-app">
+<main class="app-shell">
+  <div class="app-head">
+    <div>
+      <h1>Dogs near you</h1>
+      <p>📍 Showing matches around <strong>your area</strong> · distances are approximate — exact locations are never shared</p>
+    </div>
+    <span class="demo-pill">Demo · seeded data</span>
+  </div>
+
+  <div class="filters ui">
+    <div class="f-group">
+      <label for="fBreed">Breed</label>
+      <select id="fBreed"><option value="">All breeds</option></select>
+    </div>
+    <div class="f-group">
+      <label for="fSex">Sex</label>
+      <select id="fSex">
+        <option value="">Any</option>
+        <option value="M">Male ♂</option>
+        <option value="F">Female ♀</option>
+      </select>
+    </div>
+    <div class="f-group">
+      <label for="fDist">Distance: <span id="distVal">50</span> mi</label>
+      <input type="range" id="fDist" min="5" max="50" value="50" step="5">
+    </div>
+    <div class="f-check">
+      <input type="checkbox" id="fVerified">
+      <label for="fVerified" style="margin:0;text-transform:none;font-size:.88rem;letter-spacing:0">✅ Health-verified only</label>
+    </div>
+  </div>
+
+  <div class="results-count" id="count"></div>
+  <div class="dog-grid" id="grid"></div>
+</main>
+</div>
+
+<div class="modal-bg" id="modalBg"><div class="modal" id="modal"></div></div>
+
+<div class="chat-panel" id="chat">
+  <div class="chat-head"><span id="chatName">Chat</span><button id="chatClose" aria-label="Close chat">✕</button></div>
+  <div class="chat-note">🔒 Chat unlocked by mutual interest · be kind, meet safe</div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-input">
+    <input id="chatText" placeholder="Type a message…" maxlength="300">
+    <button id="chatSend">Send</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">🎉 It's a match! Chat unlocked.</div>
+
+<script>
+// Forming Paws demo — seeded data, client-side only.
+// Production build swaps this for the Supabase backend (profiles, storage, realtime chat).
+
+const DOGS = [
+  {id:1, name:"Luna", breed:"Golden Retriever", sex:"F", age:3, weight:62, dist:4,  verified:true,  emoji:"🦮", grad:["#f6b26b","#e8734a"], temperament:["Gentle","Social","Eager to please"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["OFA hips & elbows","ok"],["DNA panel","ok"]], bio:"Sweet-natured Golden with champion bloodlines and a full health vault. Loves water, kids, and long fetch sessions."},
+  {id:2, name:"Duke", breed:"German Shepherd", sex:"M", age:4, weight:78, dist:7,  verified:true,  emoji:"🐕‍🦺", grad:["#8d6e63","#4e342e"], temperament:["Loyal","Confident","Trainable"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["OFA hips & elbows","ok"],["Degenerative myelopathy test","ok"]], bio:"Working-line Shepherd with excellent structure and verified hip scores. Calm around other dogs, superb temperament."},
+  {id:3, name:"Bella", breed:"French Bulldog", sex:"F", age:2, weight:24, dist:3,  verified:true,  emoji:"🐶", grad:["#b0a1c9","#7e6ba0"], temperament:["Playful","Affectionate","Adaptable"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["BOAS respiratory assessment","ok"],["Spine X-ray","ok"]], bio:"Health-tested Frenchie — including the breathing assessment most listings skip. Compact, cheerful, and city-proof."},
+  {id:4, name:"Rocky", breed:"Labrador Retriever", sex:"M", age:5, weight:74, dist:11, verified:true, emoji:"🦴", grad:["#f9d976","#f39c12"], temperament:["Steady","Friendly","Food-driven"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["OFA hips & elbows","ok"],["EIC test","ok"]], bio:"Proven sire with two healthy litters on record. Classic Lab temperament — patient, gentle, endlessly good-natured."},
+  {id:5, name:"Daisy", breed:"Poodle (Standard)", sex:"F", age:3, weight:48, dist:9, verified:true, emoji:"🐩", grad:["#f8bbd0","#e57398"], temperament:["Smart","Elegant","Athletic"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["Hip evaluation","ok"],["PRA eye test","ok"]], bio:"Standard Poodle with clear eye tests and a show-quality coat. Whip-smart and wonderful with new people."},
+  {id:6, name:"Zeus", breed:"Siberian Husky", sex:"M", age:2, weight:55, dist:15, verified:false, emoji:"🐺", grad:["#90caf9","#4a7ab5"], temperament:["Energetic","Vocal","Adventurous"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["Hip evaluation","pend"],["Eye exam","pend"]], bio:"Gorgeous bi-eyed Husky. Health verification in progress — hip and eye results expected soon via our vet partner program."},
+  {id:7, name:"Rosie", breed:"Golden Retriever", sex:"F", age:4, weight:60, dist:18, verified:true, emoji:"🦮", grad:["#ffcc80","#ef8f4e"], temperament:["Calm","Nurturing","Devoted"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["OFA hips & elbows","ok"],["Cardiac exam","ok"]], bio:"Experienced mom of one healthy litter. Full cardiac clearance — rare and valuable in the breed."},
+  {id:8, name:"Bruno", breed:"French Bulldog", sex:"M", age:3, weight:27, dist:22, verified:false, emoji:"🐶", grad:["#bcaaa4","#795548"], temperament:["Chill","Comical","Cuddly"], health:[["Vet wellness exam","ok"],["Vaccinations","pend"],["BOAS respiratory assessment","pend"],["Spine X-ray","pend"]], bio:"Charming brindle Frenchie enrolled in our Get-Healthy pathway — vet visits scheduled, verification pending."},
+  {id:9, name:"Maple", breed:"Labrador Retriever", sex:"F", age:2, weight:63, dist:27, verified:true, emoji:"🦴", grad:["#d7a86e","#a86b32"], temperament:["Sweet","Curious","Gentle"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["OFA hips & elbows","ok"],["EIC test","ok"]], bio:"Fox-red Lab from health-focused lines. First-time listing from a family home, fully documented."},
+  {id:10,name:"Apollo", breed:"Poodle (Standard)", sex:"M", age:4, weight:52, dist:31, verified:true, emoji:"🐩", grad:["#cfd8dc","#78909c"], temperament:["Poised","Clever","Social"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["Hip evaluation","ok"],["PRA eye test","ok"]], bio:"Silver Standard Poodle, AKC registered, clear on every breed-recommended screen."},
+  {id:11,name:"Nova", breed:"Siberian Husky", sex:"F", age:3, weight:44, dist:36, verified:true, emoji:"🐺", grad:["#b3e5fc","#5a9bd4"], temperament:["Spirited","Independent","Affectionate"], health:[["Vet wellness exam","ok"],["Vaccinations","ok"],["Hip evaluation","ok"],["Eye exam","ok"]], bio:"Stunning grey-and-white Husky with full clearances and a marathon engine. Loves cold mornings and new friends."},
+  {id:12,name:"Tank", breed:"German Shepherd", sex:"M", age:6, weight:82, dist:42, verified:false, emoji:"🐕‍🦺", grad:["#a1887f","#5d4037"], temperament:["Protective","Mellow","Experienced"], health:[["Vet wellness exam","pend"],["Vaccinations","ok"],["OFA hips & elbows","pend"],["DM test","pend"]], bio:"Retired working dog, new to the platform. Currently completing baseline verification with a partner vet."},
+];
+
+const $ = id => document.getElementById(id);
+
+// storage that survives sandboxed iframes without localStorage access
+const store = (() => {
+  try { localStorage.setItem("__t","1"); localStorage.removeItem("__t"); return localStorage; }
+  catch(e){ const m = {}; return { getItem:k => m[k] ?? null, setItem:(k,v) => m[k]=String(v), removeItem:k => delete m[k] }; }
+})();
+
+const interested = new Set(JSON.parse(store.getItem("fp_interest") || "[]"));
+// Demo: these dogs' owners have already "liked" you, so interest becomes an instant match.
+const LIKES_YOU = new Set([1, 3, 4, 7, 11]);
+
+function saveInterest(){ store.setItem("fp_interest", JSON.stringify([...interested])); }
+function isMatch(id){ return interested.has(id) && LIKES_YOU.has(id); }
+
+/* ---------- views ---------- */
+function showView(name){
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  $("view-" + name).classList.add("active");
+  if (name === "home") window.scrollTo({top:0});
+}
+
+/* ---------- filters ---------- */
+const breeds = [...new Set(DOGS.map(d => d.breed))].sort();
+breeds.forEach(b => { const o = document.createElement("option"); o.value = b; o.textContent = b; $("fBreed").appendChild(o); });
+["fBreed","fSex","fVerified"].forEach(id => $(id).addEventListener("change", render));
+$("fDist").addEventListener("input", () => { $("distVal").textContent = $("fDist").value; render(); });
+
+function filtered(){
+  return DOGS.filter(d =>
+    (!$("fBreed").value || d.breed === $("fBreed").value) &&
+    (!$("fSex").value || d.sex === $("fSex").value) &&
+    d.dist <= +$("fDist").value &&
+    (!$("fVerified").checked || d.verified)
+  );
+}
+
+/* ---------- grid ---------- */
+function photoDiv(d, cls){
+  return `<div class="${cls}" style="background:linear-gradient(135deg,${d.grad[0]},${d.grad[1]})">
+    <span class="badge ${d.verified ? "" : "pending"}">${d.verified ? "✅ Health Verified" : "🕓 Verification Pending"}</span>
+    ${d.emoji}
+    <span class="dist">${d.dist} mi</span>
+  </div>`;
+}
+
+function render(){
+  const list = filtered();
+  $("count").textContent = `${list.length} dog${list.length === 1 ? "" : "s"} found`;
+  $("grid").innerHTML = list.length ? list.map(d => `
+    <div class="dog-card" data-id="${d.id}">
+      ${photoDiv(d, "dog-photo")}
+      <div class="dog-body">
+        <div class="dog-name">${d.name} <span class="dog-sex">${d.sex === "M" ? "♂" : "♀"}</span></div>
+        <div class="dog-meta">${d.breed} · ${d.age} yrs · ${d.weight} lb</div>
+        <div class="dog-actions ui">
+          ${actionBtn(d)}
+          <button class="btn btn-outline btn-view" data-id="${d.id}">View</button>
+        </div>
+      </div>
+    </div>`).join("")
+    : `<div class="empty"><span>🐾</span>No dogs match those filters — try widening the distance.</div>`;
+}
+
+function actionBtn(d){
+  if (isMatch(d.id)) return `<button class="btn btn-matched btn-chat" data-id="${d.id}">💬 Chat</button>`;
+  if (interested.has(d.id)) return `<button class="btn btn-outline btn-interest" data-id="${d.id}">✓ Interested</button>`;
+  return `<button class="btn btn-primary btn-interest" data-id="${d.id}">🐾 Interested</button>`;
+}
+
+$("grid").addEventListener("click", e => {
+  const interestBtn = e.target.closest(".btn-interest");
+  const chatBtn = e.target.closest(".btn-chat");
+  const viewBtn = e.target.closest(".btn-view");
+  if (interestBtn) return toggleInterest(+interestBtn.dataset.id);
+  if (chatBtn) return openChat(+chatBtn.dataset.id);
+  if (viewBtn) return openModal(+viewBtn.dataset.id);
+  const card = e.target.closest(".dog-card");
+  if (card) openModal(+card.dataset.id);
+});
+
+function toggleInterest(id){
+  if (interested.has(id)) { interested.delete(id); }
+  else {
+    interested.add(id);
+    if (LIKES_YOU.has(id)) {
+      const t = $("toast");
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2600);
+      setTimeout(() => openChat(id), 900);
+    }
+  }
+  saveInterest(); render();
+}
+
+/* ---------- modal ---------- */
+function openModal(id){
+  const d = DOGS.find(x => x.id === id);
+  $("modal").innerHTML = `
+    <button class="modal-close" id="mClose" aria-label="Close">✕</button>
+    ${photoDiv(d, "dog-photo")}
+    <div class="modal-body">
+      <h2>${d.name} <span class="dog-sex">${d.sex === "M" ? "♂" : "♀"}</span></h2>
+      <div class="dog-meta ui">${d.breed} · ${d.age} yrs · ${d.weight} lb · ~${d.dist} miles away</div>
+      <p>${d.bio}</p>
+      <div class="chips">${d.temperament.map(t => `<span class="chip">${t}</span>`).join("")}</div>
+      <div class="health-list">
+        <div style="font-weight:800;padding-bottom:6px">🩺 Health vault</div>
+        ${d.health.map(([n, s]) => `<div><span>${n}</span><span class="${s}">${s === "ok" ? "Verified ✓" : "Pending…"}</span></div>`).join("")}
+      </div>
+      <div class="dog-actions ui">${actionBtn(d)}</div>
+      ${d.verified ? "" : `<p class="gate-note">Matching unlocks once this dog's baseline health documents are verified. Owner has been referred to a partner vet.</p>`}
+    </div>`;
+  $("modalBg").classList.add("open");
+  $("mClose").onclick = closeModal;
+  $("modal").querySelector(".btn-interest")?.addEventListener("click", ev => { toggleInterest(+ev.currentTarget.dataset.id); closeModal(); });
+  $("modal").querySelector(".btn-chat")?.addEventListener("click", ev => { closeModal(); openChat(+ev.currentTarget.dataset.id); });
+}
+function closeModal(){ $("modalBg").classList.remove("open"); }
+$("modalBg").addEventListener("click", e => { if (e.target === $("modalBg")) closeModal(); });
+
+/* ---------- chat ---------- */
+const CHAT_SEED = {
+  1:["Hi! Luna's owner here — saw the mutual interest 🐾","Her OFA results are in her vault, happy to walk through them."],
+  3:["Hello! Bella says hi 🐶","We're free weekends if you'd like to meet at Riverside Dog Park."],
+  4:["Rocky's dad here — he's sired two healthy litters, records are all uploaded.","What's your timeline looking like?"],
+  7:["Hi there! Rosie is such a sweetheart, excited we matched.","Her cardiac clearance just got re-verified last month."],
+  11:["Hey! Nova's owner — love your profile.","She's due for a heat cycle in about 6 weeks if timing works."],
+};
+let chatWith = null;
+
+function openChat(id){
+  const d = DOGS.find(x => x.id === id);
+  if (!isMatch(id)) return;
+  chatWith = id;
+  $("chatName").textContent = `${d.name}'s owner`;
+  const stored = JSON.parse(store.getItem("fp_chat_" + id) || "null");
+  const msgs = stored || (CHAT_SEED[id] || ["Hi! Thanks for the match 🐾"]).map(t => ({who:"them", t}));
+  if (!stored) store.setItem("fp_chat_" + id, JSON.stringify(msgs));
+  renderChat(msgs);
+  $("chat").classList.add("open");
+  $("chatText").focus();
+}
+function renderChat(msgs){
+  $("chatMsgs").innerHTML = msgs.map(m => `<div class="msg ${m.who}">${m.t}</div>`).join("");
+  $("chatMsgs").scrollTop = $("chatMsgs").scrollHeight;
+}
+function sendMsg(){
+  const txt = $("chatText").value.trim();
+  if (!txt || chatWith == null) return;
+  const key = "fp_chat_" + chatWith;
+  const msgs = JSON.parse(store.getItem(key) || "[]");
+  msgs.push({who:"me", t:txt.replace(/</g,"&lt;")});
+  store.setItem(key, JSON.stringify(msgs));
+  $("chatText").value = "";
+  renderChat(msgs);
+  setTimeout(() => {
+    msgs.push({who:"them", t:"Sounds great — let's set up a meet at a neutral spot. I'll bring the vet records! 🐾"});
+    store.setItem(key, JSON.stringify(msgs));
+    renderChat(msgs);
+  }, 1200);
+}
+$("chatSend").addEventListener("click", sendMsg);
+$("chatText").addEventListener("keydown", e => { if (e.key === "Enter") sendMsg(); });
+$("chatClose").addEventListener("click", () => $("chat").classList.remove("open"));
+
+render();
+</script>
