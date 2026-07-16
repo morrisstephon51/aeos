@@ -6,7 +6,7 @@ Edit this file to tune the system. AXIS reads it at the start of every `/outreac
 
 ## Service Area
 
-- **Primary city:** [SET ME — e.g., Houston, TX]
+- **Primary city:** Chicago, IL
 - **Radius:** 25 miles
 - **Secondary:** fully remote clients accepted if referred
 
