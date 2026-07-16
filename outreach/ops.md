@@ -1,49 +1,51 @@
 # LBOS Ops — How AXIS Coordinates This Daily
 
-The system runs on one command: `/outreach`. Everything else is what that command does, in order.
+Runs automatically every weekday morning (Chicago time) via scheduled Routine; `/outreach` can also be run manually anytime. **Autonomy mode: template-approved** — Morris approved the templates once, AXIS sends. See `playbook/sequences.md`.
 
 ---
 
-## Daily Run (the `/outreach` loop)
+## Daily Run (the `/outreach` loop, Mon–Fri)
 
-1. **Read config** — `config.md` (quotas, niches, floors, thresholds)
+1. **Read config** — `config.md` (quotas, niches, floors, launch offer status, thresholds)
 2. **Triage the pipeline** — scan `leads/*.md`:
    - Overdue next-actions first (dates in the past)
    - Sequence touches due today (Day 3 / 7 / 14, post-proposal check-ins)
    - Stage moves earned but not recorded
-3. **Draft due touches** — follow-ups and check-ins from `templates/`, saved into each lead file's Touch Log as `DRAFT`
-4. **Prospect** — find up to 10 new leads per `playbook/prospecting.md`, score per `playbook/qualification.md`, create lead files for score ≥ 6
-5. **Draft first-touches** — up to 5, HOT leads first, per `templates/cold_email.md`
+3. **Send due touches** — personalize from approved templates, send via Gmail, log each in the lead file's Touch Log as `SENT`. No Gmail connection → log as `QUEUED` and put the full message in the send queue.
+4. **Prospect** — up to 20 new leads per `playbook/prospecting.md`, scored per `playbook/qualification.md`, lead files created for score ≥ 6
+5. **Send first-touches** — up to 10, HOT leads first. Off-template personalization → escalate as `DRAFT` instead of sending.
 6. **Rewrite the dashboard** — `leads/PIPELINE.md`
-7. **Report** — outreach section in the daily brief (`ops/daily_brief_template.md`):
+7. **Report** — the run report includes **every message sent or queued, inline and in full**, plus:
+   - Replies received → escalated with recommended response
    - HOT leads flagged
-   - Drafts awaiting Morris's approval (cold outreach never sends without sign-off)
-   - Overdue items and what AXIS did about them
-   - Pipeline totals + maintenance MRR
+   - Pipeline totals + launch-offer slots remaining + maintenance MRR
+   - The single most important action for Morris today
 
-## Morris's Part (10 minutes/day)
+## Morris's Part (minutes/day)
 
-- Approve or edit the drafted outreach — reply "send" per draft or "send all"
+- Read the run report; answer escalations (replies, HOT leads, off-template drafts)
 - Take the discovery calls AXIS books
-- Decide on anything below pricing floor or outside the playbook
+- Approve any template changes (a changed template is unapproved until Morris signs off)
 
 ## Weekly Review (Mondays, with the AEOS task review)
 
 - Funnel numbers vs. targets (`pipeline.md` → Metrics That Matter)
-- Reply rate check: <10% two weeks running → rewrite templates, don't raise volume
+- Reply rate check: <10% two weeks running → rewrite templates (re-approval required), don't raise volume
 - Zombie leads (>2 weeks stale) → force close/recycle decision
 - Niche performance: double down on what's replying, drop what isn't
-- Maintenance clients: any due for the 90-day referral ask?
+- Launch offer status: slots filled? 60-day referral asks due?
 
 ## Escalation Triggers (AXIS → Morris immediately, not in the brief)
 
-- A lead replies wanting to move fast (same-day response required)
+- Any reply from a lead (same-day response required — this is where clients come from)
 - A maintenance client reports their site is down
 - Any legal/complaint-flavored reply to outreach
 - Proposal about to expire with no decision (48h warning)
+- Gmail send failures or connection loss (system silently stalling = pipeline dying)
 
 ## Boundaries
 
 - All Plug AI. Any BigHeart overlap → flag and stop (`agent/identity.md`)
-- No auto-sending cold outreach. Drafts only, until Morris approves
+- Sending authority covers **approved templates only** — new or edited templates, and any message that deviates from one, require Morris's sign-off (`agent/email_rules.md`)
 - Opt-outs honored instantly, logged, business marked Disqualified
+- Volume caps in `config.md` are hard ceilings, never exceeded to "catch up"

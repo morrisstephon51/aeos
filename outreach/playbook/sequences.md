@@ -1,6 +1,6 @@
 # Outreach Sequences — Cadence & Rules
 
-Every qualified lead enters a timed sequence. AXIS drafts each touch on its due date; Morris approves sends (cold outreach never goes out without sign-off — `agent/rules.md`).
+Every qualified lead enters a timed sequence. **Autonomy mode: template-approved** (per `agent/email_rules.md` category pre-authorization) — Morris has approved the templates once; AXIS sends each touch on its due date via Gmail without per-message sign-off. What still escalates to Morris: every reply, HOT leads, anything that requires deviating from an approved template, and all template changes. If Gmail is not connected, AXIS falls back to a ready-to-paste send queue in the run report.
 
 ---
 
@@ -39,7 +39,7 @@ Every qualified lead enters a timed sequence. AXIS drafts each touch on its due 
 
 ## Anti-Spam / Reputation Rules
 
-- Max 5 first-touch emails drafted per day (quota in `config.md`) — personalization over volume
+- Max first-touch emails per day = quota in `config.md` — personalization over volume
 - Never email the same business twice in one sequence position
 - Every email identifies Plug AI and includes a real opt-out line; honor opt-outs instantly and log them in the lead file
 - No purchased lists. Ever. Every contact was individually researched.

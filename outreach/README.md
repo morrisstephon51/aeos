@@ -36,10 +36,10 @@ A pipeline system AXIS runs every day:
 
 ## Quick Start
 
-1. Edit `config.md` — set your city, niches, and pricing
-2. Run `/outreach` — AXIS prospects, scores, drafts outreach, and updates the pipeline
-3. Review the drafted messages in the daily brief — you approve, AXIS never sends cold outreach without sign-off (see `agent/rules.md`)
-4. Repeat daily. Pipeline compounds.
+1. `config.md` is set: Chicago, IL — 20 leads/10 first-touches per weekday, launch-offer pricing active
+2. The loop runs automatically Mon–Fri mornings (or manually via `/outreach`) — AXIS prospects, scores, sends approved-template outreach via Gmail, and updates the pipeline
+3. Read the run report — every sent message appears inline; replies and HOT leads escalate to you
+4. Templates are pre-approved once by Morris; any new or edited template requires re-approval before AXIS may send it (see `agent/email_rules.md`)
 
 ## Rules of the System
 

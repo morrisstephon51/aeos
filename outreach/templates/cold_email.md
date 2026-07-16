@@ -36,7 +36,24 @@ Rules: under 120 words. First line = their specific observation, not our intro. 
 > `[Signature]`
 > *(Reply "no thanks" and I won't follow up.)*
 
-## Personalization Checklist (before marking draft ready)
+## Variant C — Launch Offer (only while launch slots remain in `config.md`)
+
+**Subject:** free website for `[Business Name]` — serious offer, one catch
+
+> Hi `[Owner First Name]`,
+>
+> `[Specific observation — same rules as Variants A/B]`.
+>
+> Here's my offer, and it's unusual: I'm launching my web design business in Chicago and I need 2 local businesses in my portfolio. **I'll build your website free.** The only catch: you sign up for the monthly plan that keeps it updated (`$[50–100]`/mo, 6 months), and you let me put "built by Plug AI" in the footer.
+>
+> That's the whole deal. `[X]` of 2 spots left.
+>
+> Worth 10 minutes this week?
+>
+> `[Signature]`
+> *(Reply "no thanks" and I won't follow up.)*
+
+## Personalization Checklist (before a message is eligible to send)
 
 - [ ] Specific observation is verified true today
 - [ ] Owner's actual first name (or "Hi there" — never a wrong guess)
