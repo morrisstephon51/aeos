@@ -26,6 +26,12 @@ AEOS is the operating brain for your AI employee. It defines identity, rules, me
 | `ops/daily_brief_template.md` | Daily standup format |
 | `ops/task_protocol.md` | How tasks are created, tracked, closed |
 
+## Modules
+
+| Module | Purpose |
+|--------|---------|
+| `outreach/` | Local Business Outreach System (LBOS) — pipeline for selling website builds + maintenance to local businesses. Run with `/outreach`. See `outreach/README.md`. |
+
 ---
 
 ## Quick Start
