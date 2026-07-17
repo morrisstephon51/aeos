@@ -31,6 +31,7 @@ AEOS is the operating brain for your AI employee. It defines identity, rules, me
 | Module | Purpose |
 |--------|---------|
 | `outreach/` | Local Business Outreach System (LBOS) — pipeline for selling website builds + maintenance to local businesses. Run with `/outreach`. See `outreach/README.md`. |
+| `.claude/skills/remote-control/` | Remote Control — unified access to Obsidian vaults, GitHub, and Google Drive from any device. Run with `/remote-control`. |
 
 ---
 
