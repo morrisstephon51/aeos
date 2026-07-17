@@ -27,16 +27,32 @@ Edit this file to tune the system. AXIS reads it at the start of every `/outreac
 - Anything that overlaps BigHeart branding or operations
 - Businesses with <6 months of visible operating history
 
-## Daily Quotas
+## Daily Quotas (weekdays only)
 
 | Action | Quota |
 |--------|-------|
-| New leads prospected + scored | 10 |
-| First-touch outreach drafted | 5 |
-| Follow-ups drafted | all due today |
-| Discovery calls target | 2/week |
+| New leads prospected + scored | 20 |
+| First-touch outreach sent | 10 |
+| Follow-ups sent | all due today |
+| Discovery calls target | 3/week |
 
-## Pricing Floors (do not quote below these)
+## Operating Mode
+
+- **Autonomy:** template-approved. Morris approves templates once; AXIS sends first-touches and sequence follow-ups automatically via Gmail. Replies, HOT leads, and anything off-template escalate to Morris.
+- **Run schedule:** automatic, Mon–Fri mornings (Chicago time). Manual `/outreach` anytime.
+- **Run report:** every drafted/sent message appears **inline and in full** in the run report.
+- **Fallback:** if Gmail is not connected, AXIS outputs a ready-to-paste send queue instead of sending.
+
+## Pricing — Launch Phase (clients #1–2)
+
+**Launch Offer:** free Starter build in exchange for ALL of:
+- Signed 6-month maintenance commitment (Standard $100/mo preferred, Basic $50/mo minimum)
+- Written testimonial + portfolio rights ("built by Plug AI" footer credit)
+- One referral introduction at the 60-day mark
+
+Max 2 launch-offer clients, ever. Track them here when signed: _(none yet)_
+
+## Pricing Floors — Standard (client #3 onward)
 
 - Starter site: $750
 - Business site: $1,500

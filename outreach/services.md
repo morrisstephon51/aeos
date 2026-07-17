@@ -4,6 +4,14 @@ Two products. Builds get cash in. Maintenance builds the business.
 
 ---
 
+## Launch Offer (first 2 clients only — see `config.md`)
+
+**Free Starter build** — paid for by a 6-month maintenance commitment ($100/mo Standard preferred, $50/mo Basic minimum), a testimonial, portfolio rights, and one referral intro at day 60.
+
+- Pitch line: *"I'm launching in Chicago and I want your site in my portfolio — so the build costs you nothing. You only pay the monthly plan that keeps it alive."*
+- The 6-month commitment is the exception to our month-to-month rule; it exists because the build is free. Never combine the launch offer with any other discount.
+- After client #2 signs, this section is dead. Standard pricing only.
+
 ## Website Builds
 
 ### Starter — $750–$1,200
