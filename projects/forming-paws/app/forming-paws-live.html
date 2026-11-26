@@ -501,10 +501,14 @@ function sendMsg(){
   store.setItem(key, JSON.stringify(msgs));
   $("chatText").value = "";
   renderChat(msgs);
+  const replyChatId = chatWith;
   setTimeout(() => {
-    msgs.push({who:"them", t:"Sounds great — let's set up a meet at a neutral spot. I'll bring the vet records! 🐾"});
-    store.setItem(key, JSON.stringify(msgs));
-    renderChat(msgs);
+    // Re-read storage so a message sent inside the 1.2s window is not overwritten.
+    const latest = JSON.parse(store.getItem(key) || "[]");
+    latest.push({who:"them", t:"Sounds great — let's set up a meet at a neutral spot. I'll bring the vet records! 🐾"});
+    store.setItem(key, JSON.stringify(latest));
+    // Only repaint if the user is still in this conversation.
+    if (chatWith === replyChatId) renderChat(latest);
   }, 1200);
 }
 $("chatSend").addEventListener("click", sendMsg);
