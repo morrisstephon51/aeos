@@ -145,8 +145,11 @@ function openChat(id){
   $("chat").classList.add("open");
   $("chatText").focus();
 }
+function escapeHtml(s){
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
 function renderChat(msgs){
-  $("chatMsgs").innerHTML = msgs.map(m => `<div class="msg ${m.who}">${m.t}</div>`).join("");
+  $("chatMsgs").innerHTML = msgs.map(m => `<div class="msg ${m.who === "me" ? "me" : "them"}">${escapeHtml(m.t)}</div>`).join("");
   $("chatMsgs").scrollTop = $("chatMsgs").scrollHeight;
 }
 function sendMsg(){
@@ -158,10 +161,14 @@ function sendMsg(){
   localStorage.setItem(key, JSON.stringify(msgs));
   $("chatText").value = "";
   renderChat(msgs);
+  const replyChatId = chatWith;
   setTimeout(() => {
-    msgs.push({who:"them", t:"Sounds great — let's set up a meet at a neutral spot. I'll bring the vet records! 🐾"});
-    localStorage.setItem(key, JSON.stringify(msgs));
-    renderChat(msgs);
+    // Re-read storage so a message sent inside the 1.2s window is not overwritten.
+    const latest = JSON.parse(localStorage.getItem(key) || "[]");
+    latest.push({who:"them", t:"Sounds great — let's set up a meet at a neutral spot. I'll bring the vet records! 🐾"});
+    localStorage.setItem(key, JSON.stringify(latest));
+    // Only repaint if the user is still in this conversation.
+    if (chatWith === replyChatId) renderChat(latest);
   }, 1200);
 }
 $("chatSend").addEventListener("click", sendMsg);
